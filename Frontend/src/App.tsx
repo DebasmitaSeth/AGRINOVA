@@ -8,6 +8,7 @@ import Index from "./pages/Index";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import NotFound from "./pages/NotFound";
+
 import Weather from "./pages/dashboard/Weather";
 import CropPrediction from "./pages/dashboard/CropPrediction";
 import DiseasePrediction from "./pages/dashboard/DiseasePrediction";
@@ -16,7 +17,8 @@ import AIAssistant from "./pages/dashboard/AIAssistant";
 import Community from "./pages/dashboard/Community";
 import Realtimeprediction from "./pages/dashboard/Realtimeprediction";
 import DroneModule from "./pages/dashboard/DroneModule";
-import SmartStorageAdvisor from "./pages/dashboard/SmartStorageAdvisor"; // ✅ Added import
+import SmartStorageAdvisor from "./pages/dashboard/SmartStorageAdvisor";
+import AgrinovaCallPage from "./pages/dashboard/AgrinovaCallPage"; // ✅ Fixed consistent name
 
 const queryClient = new QueryClient();
 
@@ -27,6 +29,7 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <Routes>
+          {/* Public Routes */}
           <Route path="/" element={<Index />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Login />} />
@@ -35,15 +38,17 @@ const App = () => (
           <Route path="/dashboard" element={<Dashboard />}>
             <Route path="CropPrediction" element={<CropPrediction />} />
             <Route path="DiseasePrediction" element={<DiseasePrediction />} />
-            <Route path="CropProductionprediction" element={<CropProductionPrediction />} />
+            <Route path="CropProductionPrediction" element={<CropProductionPrediction />} />
             <Route path="AIAssistant" element={<AIAssistant />} />
             <Route path="Community" element={<Community />} />
             <Route path="Weather" element={<Weather />} />
             <Route path="Realtimeprediction" element={<Realtimeprediction />} />
             <Route path="DroneModule" element={<DroneModule />} />
-            <Route path="SmartStorageAdvisor" element={<SmartStorageAdvisor />} /> {/* ✅ New route */}
+            <Route path="SmartStorageAdvisor" element={<SmartStorageAdvisor />} />
+            <Route path="AgrinovaCallPage" element={<AgrinovaCallPage />} /> {/* ✅ Route name fixed */}
           </Route>
 
+          {/* 404 Fallback */}
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
